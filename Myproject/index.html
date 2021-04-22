@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/democss.css">
+    <script src="scripts\clipboard.min.js"></script>
+</head>
+
+
+<body ondragstart="window.event.returnValue=false;return false;"
+    oncontextmenu="window.event.returnValue=false;return false;" onselectstart="event.returnValue=false;return false;">
+    <div class="media-tip">
+        <div class='media-tip-content'>
+            <svg class="icon-phone" width="200px" height="200.00px" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#fff"
+                    d="M350.321714 76.893274c-41.631166 0-75.558883 33.827433-75.558883 75.475995L274.762831 871.614357c0 41.627073 33.926694 75.491345 75.558883 75.491345l323.756685 0c41.557488 0 75.466786-33.864272 75.466786-75.491345L749.545184 152.36927c0-41.648562-33.910321-75.475995-75.466786-75.475995L350.321714 76.893274 350.321714 76.893274zM703.650925 795.23069 320.692906 795.23069l0-566.461379 382.958018 0L703.650925 795.23069 703.650925 795.23069zM473.188043 867.8885c0-21.515013 17.47807-39.029922 38.938847-39.029922 21.577434 0 39.146579 17.514909 39.146579 39.029922 0 21.585621-17.569144 39.138392-39.146579 39.138392C490.666112 907.026892 473.188043 889.474121 473.188043 867.8885L473.188043 867.8885zM549.691437 153.348574c4.930289 0 8.908904 3.966335 8.908904 8.875135 0 4.801353-3.979638 8.767688-8.908904 8.767688l-74.992995 0c-4.854565 0-8.876158-3.962242-8.876158-8.767688 0-4.9088 4.021593-8.875135 8.876158-8.875135L549.691437 153.348574 549.691437 153.348574zM549.691437 153.348574" />
+            </svg>
+            <div class='media-tip-text'>
+                移动端的同学，观看请<strong>旋转屏幕</strong>。
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="boat"><img src="img/boat.PNG" alt="boat"></div>
+        <div class="lywm"><img src="img\浏阳文庙.png"></div>
+        <div class="hybgj"><img src="img\胡耀邦故居.png"></div>
+        <div class="qsqy"><img src="img\秋收起义.png"></div>
+        <div class="whsy"><img src="img\文华书院.png"></div>
+        <div class="rota"><img src="img/旋转4.jpg"></div>
+        <div class="wrapper">
+            <!-- 点击动画 -->
+            <div class="circle"><img src="img\shou2.png"></div>
+            <div class="finger"><img src="img\shou1.png"></div>
+        </div>
+        <div class="lastend1"><img src="img\IMG_6958(20210414-152842).JPG"></div>
+        <div class="lastend2"><img src="img\IMG_6959.PNG"></div>
+        <div class="mf"><img src="img\获得面粉.PNG"></div>
+        <div class="bt"><img src="img\获得白糖.PNG"></div>
+        <div class="cy"><img src="img\获得茶油.PNG"></div>
+        <div class="task"><img src="img\IMG_6956.PNG"></div>
+        <div class="wenchuanghunan"><img src="img\文创湖南.jpg"></div>
+        <div class="lastendback"><img src="img\IMG_6949.PNG"></div>
+        <div class="gzh"><img src="img\公众号1.png"></div>
+        <div class="fenxiang" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js"><img src="img\分享.png"></div>
+        <div class="mengban"></div>
+        
+        <div class="item"></div>
+        <div class="box">
+            <div class="lastimg">
+                <!--合成框 block-->
+                <img src="img/lastimg.PNG">
+                <div class="last_other">
+                    <img src="img\一气化三清.png">
+                </div>
+                <!-- 食材 block -->
+                <div class="button">
+                    <img src="img\合成.PNG">
+                </div>
+                <!-- 按钮 block -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script>
+    setRem();
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+        setRem();
+    });
+    function setRem() {
+        var html = document.querySelector("html");
+        var width = html.getBoundingClientRect().width;
+        var height = html.getBoundingClientRect().height;
+        //判断横屏
+        if (width < height) {
+            //竖屏
+            html.style.fontSize = height / 16 + "px";
+        };
+        if (width > height) {
+            //横屏
+            html.style.fontSize = width / 16 + "px";
+        }
+
+    }
+
+    var flag = true;
+    var st2 = false;
+    var st3 = false;
+    var st4 = false;
+    $(() => {
+        $(".item").on('touchstart', () => {
+            if (flag == true) {
+                // console.log("我是监听0")
+                $(".container").css("animation-play-state", "running");
+            }
+            $(".lywm").hide();
+            $(".wrapper").hide();
+            $(".mf>img").hide();
+            $(".bt>img").hide();
+            $(".cy>img").hide();
+        })
+
+        let time1 = setInterval(() => {
+            let x = $(".container").css("background-position-x");
+            x = parseInt(x)
+            if (x == 35) {
+                flag = false;
+                $(".container").css("animation-play-state", "paused");
+                $(".hybgj>img").show();
+                $(".wrapper").show();
+                $(".item").on('touchstart', () => {
+                    if (flag == false & st2 == false) {
+                        // console.log("我是监听1")
+                        $(".mf>img").show();
+                        $(".hybgj>img").hide();
+                        flag = true;
+                    }
+                })
+                clearInterval(time1);
+            }
+        }, 100)
+
+        let time2 = setInterval(() => {
+            let x = $(".container").css("background-position-x");
+            x = parseInt(x)
+            if (x == 55) {
+                flag = false;
+                st2 = true;
+                $(".container").css("animation-play-state", "paused");
+                $(".qsqy>img").show();
+                $(".wrapper").show();
+                $(".item").on('touchstart', () => {
+                    if (flag == false & st3 == false) {
+                        // console.log("我是监听2")
+                        $(".bt>img").show();
+                        $(".qsqy>img").hide();
+                        flag = true;
+                    }
+                })
+                clearInterval(time2);
+            }
+        }, 100)
+
+        let time3 = setInterval(() => {
+            let x = $(".container").css("background-position-x");
+            x = parseInt(x)
+            if (x == 71) {
+                flag = false;
+                st3 = true;
+                $(".container").css("animation-play-state", "paused");
+                $(".whsy>img").show();
+                $(".wrapper").show();
+                $(".item").on('touchstart', () => {
+                    if (flag == false & st4 == false) {
+                        // console.log("我是监听2")
+                        $(".cy>img").show();
+                        $(".whsy>img").hide();
+                        flag = true;
+                    }
+                })
+                clearInterval(time3);
+            }
+        }, 100)
+
+        let time4 = setInterval(() => {
+            let x = $(".container").css("background-position-x");
+            x = parseInt(x)
+            if (x == 85) {
+                flag = false;
+                st4 = true;
+                $(".container").css("animation-play-state", "paused");
+                $(".wrapper").hide();
+                $(".box").show();
+                $('.button').on('touchstart', () => {
+                    $('.box').hide();
+                    $('.task>img').show();
+                    $(".item").on('touchstart', () => {
+                        $(".container").css("animation-play-state", "running");
+                        $('.task>img').hide();
+                    })
+                })
+                clearInterval(time4);
+            }
+        }, 100)
+
+        let time5 = setInterval(() => {
+            let x = $(".container").css("background-position-x");
+            x = parseInt(x)
+            if (x == 100) {
+                $(".wrapper").show();
+                $(".item").on('touchstart', () => {
+                    $('.lastend1>img').show();
+                    $('.lastend2>img').show();
+                    $(".gzh>img").show();
+                    $(".fenxiang>img").show();
+                    $(".item").unbind('touchstart');
+                    $(".mengban").show();
+                })
+            }
+        })
+
+        $(".gzh").on('touchstart', () => {
+            $('.wenchuanghunan>img').show();
+            $(".gzh>img").hide();
+            $(".fenxiang>img").hide();
+            $(".mengban").hied();
+            $(".gzh").unbind('touchstart');
+        })
+
+        var clipboard = new ClipboardJS('.fenxiang');
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            alert('复制链接成功~');
+            e.clearSelection();
+        });
+ 
+       clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+            alert('复制失败~请重新尝试')
+        });
+
+    })
+</script>
+
+</html>

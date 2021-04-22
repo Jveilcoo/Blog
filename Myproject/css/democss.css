@@ -1,0 +1,515 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-backface-visibility:hidden;
+    backface-visibility: hidden;
+}
+
+body{
+    width:880px;
+    height:440px;
+}
+.container{
+    position: absolute;
+    width:880px;
+    height:440px;
+    margin:auto;
+    background: url(img/IMG_6964\(20210414-233607\).JPG);
+    background-size: cover;
+    z-index: 1;
+    animation: backmove 15s linear forwards;
+    animation-play-state: paused;
+    transform: translateZ(0);
+}
+
+@keyframes backmove{
+    from{
+        background-position-x: 0%;
+    }
+
+    to{
+        background-position-x: 100%;
+    }
+  
+}
+/* --------------------------------------------船只 */
+.boat img {
+    position: fixed;
+    height: 80%;
+    width: 80%;
+    top: 13%;
+    right: 45%;
+    animation: boatmove 1s;
+}
+
+@keyframes boatmove {
+    from {
+        right: 60%;
+        opacity: 0;
+    }
+
+    to {
+        right: 45%;
+        opacity: 1;
+    }
+}
+/* --------------------------------------------浏阳文庙 */
+.lywm img {
+    /* display: none; */
+    position: fixed;
+    width: 33%;
+    height: 47%;
+    left: 43%;
+    top: 15%;
+    animation: lywmmove 1s;
+}
+
+@keyframes lywmmove {
+    from {
+        transform: translateY(-15%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------------------胡耀邦故居 */
+.hybgj img{
+    display: none;
+    position: fixed;
+    width: 33%;
+    height: 47%;
+    left: 32%;
+    top: 10%;
+    animation: hybgjmove 1s;
+}
+
+@keyframes hybgjmove {
+    from {
+        transform: translateY(-5%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------------------秋收起义 */
+.qsqy img{
+    display: none;
+    position: fixed;
+    width: 33%;
+    height: 47%;
+    left: 66%;
+    top: 10%;
+    animation: qsqymove 1s;
+}
+
+@keyframes qsqymove {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------------------文华书院 */
+.whsy img{
+    display: none;
+    position: fixed;
+    width: 33%;
+    height: 47%;
+    left: 53%;
+    top: 10%;
+    animation: qsqymove 1s;
+}
+
+@keyframes whsymove {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------------------合成栏目 */
+.box{
+   display: none;
+}
+.lastimg img {
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    right: 14%;
+    top: 10%;
+    padding: 0;
+    animation: imgmove 1s;
+}
+
+.last_other img {
+    position: fixed;
+    top: 34%;
+    left: 37%;
+    width: 32%;
+    height: 20%;
+    animation: imgotmove 1s;
+}
+
+.button img {
+    position: fixed;
+    left: 48%;
+    top: 59%;
+    width: 10%;
+    height: 9%;
+    z-index: 201;
+    animation: buttonmove 1s;
+}
+
+@keyframes imgmove {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes imgotmove {
+    from {
+        transform: translateY(-34%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonmove {
+    from {
+        transform: translateY(-59%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------------------遮罩层 */
+.item{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+}
+/* --------------------------------------------点击 */
+.wrapper {
+    position: fixed;
+    left: 70%;
+    top: 60%;
+}
+
+.circle img{
+    position: fixed;
+    animation: circleHide 1s ease both;
+}
+
+.finger img{
+    position: fixed;
+    animation: fingerHandle 2s ease both;
+}
+
+@keyframes fingerHandle {
+    0% {
+        transform: none;
+    }
+    70% {
+        transform: scale3d(.8, .8, .8);
+    }
+    100% {
+        transform: none;
+        opacity: 0;
+    }
+}
+
+@keyframes circleHide {
+    0% {
+        opacity: 0;
+        transform: scale3d(0, 0, 0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale3d(0, 0, 0);
+    }
+}
+/* --------------------------------------------旋转 */
+@media all and (orientation: portrait) {
+
+    .lywm img{
+        display: none; 
+    }
+    .boat{
+        display: none;
+    }
+    .wrapper{
+        display: none;
+    }
+    .box{
+        display: none;
+    }
+}
+
+@media all and (orientation: landscape) { 
+    .rota {
+        display:none;
+    }
+}
+
+@keyframes rotamove{
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100%{
+        opacity: 0.2;
+    }
+} 
+
+/* --------------------------------------------竖屏处理 */
+.media-tip {
+    color: #fff;
+    background-color: #313131;
+    z-index: 100;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-tip-content {
+    transform: rotate(90deg);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-tip-text {
+    margin-left: 1.25rem;
+    letter-spacing: 0.25rem;
+    /* 防止 div 内文字换行 */
+    font-size:19px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.icon-phone {
+    width: 2.8125rem;
+    animation: spin 3s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/* 竖屏识别 */
+@media all and (orientation : portrait) {
+
+    .media-tip {
+        visibility: visible;
+    }
+
+}
+/* --------------------------------------------结尾动画 */
+
+.lastend1 img{
+    display: none;
+    position: fixed;
+    height:100%;
+    width: 100%;
+    animation: last1move 4s;
+}
+
+@keyframes last1move{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.lastend2 img{
+    display: none;
+    position: fixed;
+    height:100%;
+    width: 100%;
+    animation: last2move 5s;
+}
+
+@keyframes last2move{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.wenchuanghunan img{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    animation: last3move 2s;
+}
+@keyframes last3move{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.lastendback img{
+    display: none;
+    position: fixed;
+    width: 81%;
+    height: 62%;
+    right: 11%;
+    top: 17%;
+}
+.gzh img{
+    display: none;
+    position: fixed;
+    width: 15%;
+    height: 13%;
+    left: 27%;
+    top: 40%;
+    z-index: 201;
+    animation: last2move 6s;
+}
+
+.fenxiang img{
+    display: none;
+    position: fixed;
+    width: 15%;
+    height: 13%;
+    left: 55%;
+    top: 40%;
+    z-index: 201;
+    animation: last2move 6s;
+}
+/* --------------------------------------------合成物品 */
+.mf img{
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 11%;
+    animation: taskmove 1s;
+}
+.bt img{
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 11%;
+    animation: taskmove 1s;
+}
+.cy img{
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 11%;
+    animation: taskmove 1s;
+}
+.task img{
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 11%;
+    animation: taskmove 1s;
+}
+
+.mengban{
+    display: none;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    z-index:10;
+    animation: mengbanmove 16s;
+}
+@keyframes taskmove{
+    from {
+        transform: translateY(-25%);
+        opacity: 0;
+    }
+    
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes mengbanmove{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.4;
+    }
+}
